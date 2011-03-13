@@ -1,8 +1,8 @@
-#define SDIO 1
-#define SCK 0
-#define M_PORT PORTB
-#define M_DDR DDRB
-#define M_PIN PINB
+#define SDIO 1			//SDIO PIN
+#define SCK 0			//SCK PIN
+#define M_PORT PORTB	//MOUSE PORT
+#define M_DDR DDRB		//MOUSE PORT DDR
+#define M_PIN PINB		//MOUSE PIN
 
 #ifndef _MOUSE_H_
 #define _MOUSE_H_
