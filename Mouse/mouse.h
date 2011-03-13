@@ -41,7 +41,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 /**
- * @struct POSITION DELTA
+ * @struct PosDelta
  * 
  * Keeps information about position change.
  * 
@@ -53,7 +53,7 @@ struct PosDelta{
 };
 
 /**
- * @struct MOUSE DATA
+ * @struct MouseData
  * 
  * Keeps configuration data of sensor.
  * 
