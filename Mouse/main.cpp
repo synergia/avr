@@ -13,8 +13,8 @@ int main(void){
 	int x=0;
 	int y=0;
 	
-	Pos_Delta delta;
-	Mouse_Data data;
+	PosDelta delta;
+	MouseData data;
 	
 	MOUSE mouse;
 	LCD lcd;
