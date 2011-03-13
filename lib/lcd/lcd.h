@@ -179,6 +179,8 @@ public:
 	 * @return LCD object
 	**/
 	LCD & operator<<(const long number);	
+	
+	LCD & operator<<(const unsigned int number);
 };
 
 #endif

@@ -254,6 +254,11 @@ LCD & LCD::operator<<(const int number){
 	return *this;
 }
 
+LCD & LCD::operator<<(const unsigned int number){
+	*this << (long) number;
+	return *this;
+}
+
 LCD & LCD::operator<<(const long number){
 	char str[10];
 	itoa(number, str, 10);
