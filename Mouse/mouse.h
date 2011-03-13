@@ -7,15 +7,22 @@
 #ifndef _MOUSE_H_
 #define _MOUSE_H_
 
+struct Pos_Delta{
+	char x;
+	char y;
+};
 
-void sck_switch();
+class MOUSE{
 
-void sck(int state);
+public:
+	MOUSE();
+	char read(char addr);
+	void write(char addr, char data);
+	MOUSE & operator>>(Pos_Delta &delta);
+		
+private:
+	void sck(char state);
 
-char mouse_read(int addr);
-
-void mouse_write(int addr, int value);
-
-void mouse_init();
+};
 
 #endif

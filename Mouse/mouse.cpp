@@ -2,25 +2,14 @@
 #include <util/delay.h>
 #include "mouse.h"
 
-
-
-
-void sck_switch()
-{
-	M_PORT ^= 1<<SCK;
-}
-
-void sck(int state)
-{
+void MOUSE::sck(char state){
 	if (state == 1) M_PORT |= (1 << SCK);
 	else M_PORT &= ~(1<<SCK);
 }
 
-	
-char mouse_read(int addr)
-{
+char MOUSE::read(char addr){
 	char value=0;
-	int i;
+	char i;
 	
 	M_DDR |= (1 << SDIO); // set both SDIO & SCK as output
 	
@@ -49,8 +38,7 @@ char mouse_read(int addr)
 	return value;
 }
 
-void mouse_write(int addr, int value)
-{
+void MOUSE::write(char addr, char data){
 	int i;
 	
 	addr |= (1<<7); //to enable write mode
@@ -73,17 +61,21 @@ void mouse_write(int addr, int value)
 		sck(0);
 		
 		//send i(th) register adress bit
-		if ((value & (1<<i)) != 0) M_PORT |= (1<<SDIO);
+		if ((data & (1<<i)) != 0) M_PORT |= (1<<SDIO);
 		else M_PORT &= ~(1<<SDIO);
 		
 		sck(1);	
 	}
-	
 }
 
-void mouse_init()
-{
-	int a;
+MOUSE & MOUSE::operator>>(Pos_Delta &delta){
+	delta.x = read(0x03);
+	delta.y = read(0x02);
+	return *this;
+}
+
+MOUSE::MOUSE(){
+	char a;
 	
 	M_DDR |= (1 << SCK);
 	M_PORT |= (1 << SCK);
@@ -92,7 +84,8 @@ void mouse_init()
 	_delay_us(1);
 	M_PORT |= (1 << SCK);
 	_delay_ms(1000);
-	a = mouse_read(0x00);
+	a = read(0x00);
 	a &= ~0x01;
-	mouse_write(0x00, a);
+	write(0x00, a);
 }
+
