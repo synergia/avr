@@ -74,6 +74,11 @@ MOUSE & MOUSE::operator>>(Pos_Delta &delta){
 	return *this;
 }
 
+MOUSE & MOUSE::operator>>(Mouse_Data &data){
+	data.qual = read(0x04);
+	return *this;
+}
+
 MOUSE::MOUSE(){
 	char a;
 	

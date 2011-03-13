@@ -12,8 +12,9 @@ int main(void){
 	char a=0;
 	int x=0;
 	int y=0;
-	int x_mm=0;
-	int y_mm=0;
+	
+	Pos_Delta delta;
+	Mouse_Data data;
 	
 	MOUSE mouse;
 	LCD lcd;
@@ -30,25 +31,23 @@ int main(void){
 	
 	for(;;)
 	{	
-		a = mouse.read(0x03);
-		x+=a;
+		
+		mouse >> delta;
 		lcd.gotoxy(0,0);
 		lcd << "x:";
-		lcd << x/40;
+		lcd << (int)delta.x;
 		lcd << "  ";
 		
-		a = mouse.read(0x02);
-		y+=a;
+		
 		lcd.gotoxy(0,1);
 		lcd << "y:";
-		lcd << y/40; 
+		lcd << (int)delta.y; 
 		lcd << "  ";
 		
-		
-		a = mouse.read(0x04);
-		lcd.gotoxy(5,0);
+		mouse >> data;
+		lcd.gotoxy(6,0);
 		lcd << "Qual: ";
-		lcd << (int)(unsigned char)a;
+		lcd << (int)(unsigned char)data.qual;
 		lcd << "     ";
 		
 	}

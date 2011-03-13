@@ -12,13 +12,18 @@ struct Pos_Delta{
 	char y;
 };
 
+struct Mouse_Data{
+	char qual;
+};
+
 class MOUSE{
 
 public:
 	MOUSE();
 	char read(char addr);
 	void write(char addr, char data);
-	MOUSE & operator>>(Pos_Delta &delta);
+	MOUSE & operator >> (Pos_Delta &delta);
+	MOUSE & operator >> (Mouse_Data &data);
 		
 private:
 	void sck(char state);
