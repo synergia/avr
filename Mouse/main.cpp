@@ -15,33 +15,37 @@ int main(void){
 	
 	PosDelta delta;
 	MouseData data;
-	
 	MOUSE mouse;
 	LCD lcd;
-	
+
+
 	lcd.cursorOff();
-	lcd.gotoxy(0,0);
+	lcd << "Synergia 2011";
+	lcd.gotoxy(0,1);
+	for (a=0; a<16; a++)
+	{
+		lcd << "*";
+		_delay_ms(150);
+	}
 	lcd.clear();
-	
-	
-	//a = mouse_read(0x00);
-	//a |= 0x01;
-	//mouse_write(0x00, a);
 	
 	
 	for(;;)
 	{	
 		
 		mouse >> delta;
+		x+=delta.x;
+		y+=delta.y;
+		
 		lcd.gotoxy(0,0);
 		lcd << "x:";
-		lcd << (int)delta.x;
+		lcd << (int)x/40;
 		lcd << "  ";
 		
 		
 		lcd.gotoxy(0,1);
 		lcd << "y:";
-		lcd << (int)delta.y; 
+		lcd << (int)y/40; 
 		lcd << "  ";
 		
 		mouse >> data;
@@ -49,6 +53,12 @@ int main(void){
 		lcd << "Qual: ";
 		lcd << (int)(unsigned char)data.qual;
 		lcd << "     ";
+		
+		if (!(PINB & (1<<2)))
+		{
+			x=0;
+			y=0;
+		}
 		
 	}
     return 0;
