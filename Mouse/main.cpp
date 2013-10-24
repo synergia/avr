@@ -7,15 +7,12 @@
 
 
 int main(void){
-    	
 
-	char a=0;
 	int x=0;
 	int y=0;
 	
 	PosDelta delta;
 	MouseData data;
-	MOUSE mouse;
 	LCD lcd;
 
 
