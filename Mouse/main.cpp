@@ -17,6 +17,8 @@ int main(void){
 	MouseData data;
 	MOUSE mouse;
 	LCD lcd;
+	
+	
 
 
 	lcd.cursorOff();
