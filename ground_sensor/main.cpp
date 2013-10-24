@@ -11,7 +11,7 @@
 #include <avr/interrupt.h>
 #include <util/delay.h>
 // #include "../../lib/lcd/lcd.h"
-//moja zmiana
+
 
 // LCD lcd;
 volatile int adc_value = 0;
