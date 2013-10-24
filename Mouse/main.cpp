@@ -8,12 +8,16 @@
 
 int main(void){
 
+	
 	int x=0;
 	int y=0;
+	int h=64; 
 	
 	PosDelta delta;
 	MouseData data;
 	LCD lcd;
+	
+	
 
 
 	lcd.cursorOff();
@@ -27,7 +31,7 @@ int main(void){
 	lcd.clear();
 	
 	
-	for(;;)
+	
 	{	
 		
 		mouse >> delta;
