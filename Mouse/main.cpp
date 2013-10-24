@@ -9,9 +9,10 @@
 int main(void){
     	
 
-	char a=0;
+	
 	int x=0;
 	int y=0;
+	int h=64; 
 	
 	PosDelta delta;
 	MouseData data;
@@ -30,7 +31,7 @@ int main(void){
 	lcd.clear();
 	
 	
-	for(;;)
+	
 	{	
 		
 		mouse >> delta;
