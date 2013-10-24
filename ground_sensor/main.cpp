@@ -13,6 +13,7 @@
 // #include "../../lib/lcd/lcd.h" 
 
 //czesc i czolem
+//moj koment
 
 // LCD lcd;
 volatile int adc_value = 0;
