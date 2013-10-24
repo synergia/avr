@@ -39,10 +39,10 @@ all:	main.hex
 	$(CXX) -S $< -o $@
 
 flash:	all
-	$(AVRDUDE) -U flash:w:main.hex:i
 
 fuse:
-	$(AVRDUDE) $(FUSES)
+	$(AVRDUDE)
+
 
 # Xcode uses the Makefile targets "", "clean" and "install"
 install: flash
