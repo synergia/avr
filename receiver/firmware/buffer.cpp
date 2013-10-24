@@ -62,6 +62,7 @@ char * Buffer::front(){
 
 int Buffer::size(){
 	return _size;
+	int a;
 }
 
 unsigned char Buffer::read(){
