@@ -10,8 +10,9 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>
-// #include "../../lib/lcd/lcd.h"
+// #include "../../lib/lcd/lcd.h" 
 
+//czesc i czolem
 
 // LCD lcd;
 volatile int adc_value = 0;
